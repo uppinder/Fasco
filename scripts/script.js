@@ -1,3 +1,4 @@
+// Deals Carousel
 const images = [
   "assets/images/deals-image-1.jpeg",
   "assets/images/deals-image-2.jpeg",
@@ -20,11 +21,12 @@ const sliderImages = {
   active: "assets/images/deals-slider-active.svg",
   inactive: "assets/images/deals-slider.svg",
 };
+
 const wordMap = { 0: "first", 1: "second", 2: "third" };
 
 let imageIdx = 0;
 
-function updateCarousel() {
+function updateDealsCarousel() {
   // Update images
   let firstImage = document.getElementById("deals-image-first");
   let firstImageIdx = obj[imageIdx][0];
@@ -57,7 +59,7 @@ function updateCarousel() {
   }
 }
 
-updateCarousel();
+updateDealsCarousel();
 
 document
   .getElementById("deals-pointer-left")
@@ -65,7 +67,7 @@ document
     imageIdx -= 1;
     imageIdx = ((imageIdx % 3) + 3) % 3;
 
-    updateCarousel();
+    updateDealsCarousel();
   });
 
 document
@@ -74,5 +76,36 @@ document
     imageIdx += 1;
     imageIdx = imageIdx % 3;
 
-    updateCarousel();
+    updateDealsCarousel();
+  });
+
+//   Testimonials Carousel
+let currCardIdx = 0;
+
+function updateTestimonialsCarousel() {
+  console.log(currCardIdx);
+  console.log(`testimonials-card-${wordMap[currCardIdx]}`);
+  document
+    .getElementById(`testimonials-card-${wordMap[currCardIdx]}`)
+    .scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+}
+
+updateTestimonialsCarousel();
+
+document
+  .getElementById("testimonials-pointer-left")
+  .addEventListener("click", (event) => {
+    currCardIdx -= 1;
+    currCardIdx = ((currCardIdx % 3) + 3) % 3;
+
+    updateTestimonialsCarousel();
+  });
+
+document
+  .getElementById("testimonials-pointer-right")
+  .addEventListener("click", (event) => {
+    currCardIdx += 1;
+    currCardIdx = currCardIdx % 3;
+
+    updateTestimonialsCarousel();
   });

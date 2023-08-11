@@ -5,11 +5,7 @@ const images = [
   "assets/images/deals-image-3.jpeg",
 ];
 
-const styles = [
-  "object-position: 63%; transform: rotateY(180deg);",
-  "object-position: 45%;",
-  "object-position: 55%;",
-];
+const imagePositions = ["37%", "45%", "55%"];
 
 const obj = {
   0: [0, 1, 2],
@@ -30,21 +26,18 @@ function updateDealsCarousel() {
   // Update images
   let firstImage = document.getElementById("deals-image-first");
   let firstImageIdx = obj[imageIdx][0];
-  firstImage.src = images[firstImageIdx];
-  firstImage.style.transform = "none";
-  firstImage.style.cssText += styles[firstImageIdx];
+  firstImage.style.backgroundImage = `url("${images[firstImageIdx]}")`;
+  firstImage.style.backgroundPosition = imagePositions[firstImageIdx];
 
   let secondImage = document.getElementById("deals-image-second");
   let secondImageIdx = obj[imageIdx][1];
-  secondImage.src = images[secondImageIdx];
-  secondImage.style.transform = "none";
-  secondImage.style.cssText += styles[secondImageIdx];
+  secondImage.style.backgroundImage = `url("${images[secondImageIdx]}")`;
+  secondImage.style.backgroundPosition = imagePositions[secondImageIdx];
 
   let thirdImage = document.getElementById("deals-image-third");
   let thirdImageIdx = obj[imageIdx][2];
-  thirdImage.src = images[thirdImageIdx];
-  thirdImage.style.transform = "none";
-  thirdImage.style.cssText += styles[thirdImageIdx];
+  thirdImage.style.backgroundImage = `url("${images[thirdImageIdx]}")`;
+  thirdImage.style.backgroundPosition = imagePositions[thirdImageIdx];
 
   // Update slider
   for (let idx = 0; idx < 3; ++idx) {
@@ -89,8 +82,6 @@ function updateTestimonialsCarousel() {
     .getElementById(`testimonials-card-${wordMap[currCardIdx]}`)
     .scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
 }
-
-updateTestimonialsCarousel();
 
 document
   .getElementById("testimonials-pointer-left")

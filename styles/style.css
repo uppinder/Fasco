@@ -409,13 +409,14 @@
   flex: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .deals-images-slider {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: -100px;
 }
 
 .deals-images-image-third {
@@ -425,23 +426,28 @@
 #deals-image-first {
   height: 550px;
   width: 100%;
-  object-fit: cover;
-  /* object-position: 63%;
-  transform: rotateY(180deg); */
+  background: url("../assets/images/deals-image-1.jpeg");
+  background-size: cover;
+  background-position: 37%;
+  transition: all 2s ease-in-out;
 }
 
 #deals-image-second {
   height: 450px;
   width: 100%;
-  object-fit: cover;
-  /* object-position: 45%; */
+  background: url("../assets/images/deals-image-2.jpeg");
+  background-size: cover;
+  background-position: 45%;
+  transition: all 2s ease-in-out;
 }
 
 #deals-image-third {
   height: 450px;
   width: 100%;
-  object-fit: cover;
-  /* object-position: 55%; */
+  background: url("../assets/images/deals-image-3.jpeg");
+  background-size: cover;
+  background-position: 55%;
+  transition: all 1.5s ease-in-out;
 }
 
 /* New arrivals */
